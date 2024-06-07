@@ -1,21 +1,26 @@
 @extends('layout.layout', ['title' => 'Login'])
 
 @section('content')
-    <div class="container-sm">
-        <h1>Login</h1>
-        <div class="row justify-content-center">
-            <form action="{{ route('login') }}" method="POST">
+    <div class="login-page">
+
+        
+        <div class="form">
+        <div class="login-form">
+            <h1 class="login-name">LOGIN</h1>
+            <form action="{{ route('login') }}" method="POST" class="register-form">
                 <label for="email">
                     Email:
-                    <input class="form-control form-control-lg" id="email" type="email" placeholder="name@example.com">
+                    <input id="email" type="email" placeholder="name@example.com" class="input">
                 </label>
     
                 <label for="password">
                     Senha:
-                    <input class="form-control form-control-lg" id="senha" type="password" placeholder="example123">
+                    <input id="senha" type="password" placeholder="example123" class="input">
                 </label>
-                <button class="btn btn-primary" type="submit">Entrar</button>
+                <button type="submit" class="button">Entrar</button>
+                <p class="message">Não cadastrado? <a href="/resources/views/register.blade.php">Crie uma conta agora!</a></p>
             </form>
+        </div>
         </div>
     </div>
 @endsection
