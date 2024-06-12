@@ -20,3 +20,4 @@ Route::post('cadastro', [UserRegisterController::class, 'store'])
     ->name('register');
     
 Route::view('/dashboard', 'dashboard')->name('dashboard')->middleware('auth');
+

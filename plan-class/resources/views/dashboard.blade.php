@@ -10,19 +10,34 @@
     </form>
 </div>
 
-<div>
-    <table class="list-livros">
+@extends('layouts.app')
+
+@section('content')
+    <h1>Livros</h1>
+    <table class="table">
         <thead>
             <tr>
-                <th scope="col">id</th>
-                <th scope="col">autor</th>
-                <th scope="col">título</th>
-                <th scope="col">edição</th>
-                <th scope="col">editora</th>
-                <th scope="col">ano de publicação</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Editora</th>
+                <th>Ações</th>
             </tr>
         </thead>
+        <tbody>
+            @foreach($books as $book)
+                <tr>
+                    <td>{{ $book->title }}</td>
+                    <td>{{ $book->author }}</td>
+                    <td>{{ $book->publisher }}</td>
+                    <td>
+                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary">Editar</a>
+                        <a href="{{ route('books.destroy', $book->id) }}" class="btn btn-danger">Excluir</a>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
     </table>
-</div>
+    <a href="{{ route('books.create') }}" class="btn btn-success">Adicionar Livro</a>
+@endsection
 
 @endsection
