@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,13 +10,21 @@ class LoginController extends Controller
     {
         return view('login');
     }
+
     public function login(Request $request)
-    {
-        $credenciais = $request->only('email', 'password');
-        if (Auth::attempt($credenciais))
-            return view('dashboard');
-        return redirect('/');
+{
+    $credenciais = $request->only('email', 'password');
+
+    if (Auth::attempt($credenciais)) {
+        $user = Auth::user();
+        // dd($user);
+        return redirect()->route('dashboard'); 
+    } else {
+        return redirect()->route('login')
+            ->withInput($request->only('email')) 
+            ->withErrors(['password' => 'Invalid password']);
     }
+}
     public function logout(Request $request)
     {
         Auth::logout();
@@ -26,3 +33,4 @@ class LoginController extends Controller
         return redirect('/');
     }
 }
+

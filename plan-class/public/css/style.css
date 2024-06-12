@@ -10,7 +10,7 @@ body {
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
-  width: 360px;
+  width: 480px;
   padding: 8% 0 0;
   margin: auto;
 }
@@ -18,7 +18,7 @@ body {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 360px;
+  max-width: 480px;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
@@ -26,8 +26,21 @@ body {
 }
 
 .input{
-	max-width: 360px;
 	border-radius: 10px;
+	width: 320px;
+	font-family: "Roboto", sans-serif;
+  	outline: 0;
+  	background: #f2f2f2;
+  	border: 0;
+  	margin: 0 0 15px;
+ 	padding: 15px;
+  	box-sizing: border-box;
+  	font-size: 14px;
+}
+
+.inputunique{
+	border-radius: 10px;
+	width: 250px;
 	font-family: "Roboto", sans-serif;
   	outline: 0;
   	background: #f2f2f2;
@@ -53,6 +66,18 @@ body {
 	cursor: pointer;
 }
 
+.button-sair{
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	text-transform: uppercase;
+	background: #4CAF50;
+	border-radius: 10px;
+	color: #FFFFFF;
+	padding: 15px;
+	font-size: 14px;
+	border: #76b852;
+	align-items: end;
+}
+
 .button :hover{
 	color:#ffffff;  
   }
@@ -69,3 +94,32 @@ body {
 	color: #4CAF50;
 	font-weight: 800;
 }
+
+.form-cadastro {
+	z-index: 10;
+	justify-content: center;
+	align-items: center;
+	background: #FFFFFF;
+	max-width: 480px;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+.alert{
+	font-size: x-small;
+}
+
+.menu {
+	width: auto;
+	height: 5px;
+	display: flex; /* Add this to use flexbox */
+	align-items: center; /* Center vertically */
+	background: #FFFFFF;
+	margin: 0 auto 100px;
+	padding: 40px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	text-align: center;
+	justify-content: space-between;
+  }

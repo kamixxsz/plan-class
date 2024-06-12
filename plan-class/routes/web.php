@@ -1,16 +1,17 @@
 <?php
 
+namespace App\Http\Controllers;
+use App\Http\Controllers\LivrosController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserRegisterController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [LoginController::class, 'index']);
 Route::post('/', [LoginController::class, 'login'])
     ->name('login');
 
-Route::post('logout', [LoginController::class, 'logout'])
-    ->name('logout');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
 
 Route::get('cadastro', function(){
     return view('register');});
@@ -18,6 +19,4 @@ Route::get('cadastro', function(){
 Route::post('cadastro', [UserRegisterController::class, 'store'])
     ->name('register');
     
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::view('/dashboard', 'dashboard')->name('dashboard')->middleware('auth');

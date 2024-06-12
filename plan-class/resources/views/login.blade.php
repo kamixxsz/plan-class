@@ -2,25 +2,33 @@
 
 @section('content')
     <div class="login-page">
-
-        
         <div class="form">
+        @if($errors->any())
+        <div class="alert">
+        <ul>
+        @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+        </div>
+        @endif
         <div class="login-form">
             <h1 class="login-name">LOGIN</h1>
+            <br>
             <form action="{{ route('login') }}" method="POST" class="register-form">
-                <label for="email">
+            @csrf
+            <label for="email">
                     Email:
-                    <input id="email" type="email" placeholder="name@example.com" class="input">
+                    <input name="email" type="email" placeholder="name@example.com" class="input" value="teste@gmail.com">
                 </label>
     
                 <label for="password">
                     Senha:
-                    <input id="senha" type="password" placeholder="example123" class="input">
+                    <input name="password" type="password" placeholder="example123" class="input" value="testeteste">
                 </label>
+                <br>
                 <button type="submit" class="button">Entrar</button>
-                <p class="message">Não cadastrado? <a href="/resources/views/register.blade.php">Crie uma conta agora!</a></p>
+                <p class="message">Não cadastrado? <a href="{{route('register')}}">Crie uma conta agora!</a></p>
             </form>
-        </div>
         </div>
     </div>
 @endsection
