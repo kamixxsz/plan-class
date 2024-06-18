@@ -21,3 +21,4 @@ Route::post('cadastro', [UserRegisterController::class, 'store'])
     
 Route::view('/dashboard', 'dashboard')->name('dashboard')->middleware('auth');
 
+

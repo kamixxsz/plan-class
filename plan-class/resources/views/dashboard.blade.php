@@ -5,39 +5,46 @@
 <div class="menu">
     <h1 class="login-name">MEUS LIVROS</h1>
     <form action="{{ route('logout') }}" method="POST">
-    @csrf
-    <button type="submit" class="button-sair">SAIR</button>
+        @csrf
+        <button type="submit" class="button-sair">SAIR</button>
     </form>
 </div>
 
-@extends('layouts.app')
-
-@section('content')
-    <h1>Livros</h1>
-    <table class="table">
-        <thead>
+<h1>Livros</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Subtítulo</th>
+            <th>Autor</th>
+            <th>Data de Publicação</th>
+            <th>Edição</th>
+            <th>Editora</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($books as $book)
             <tr>
-                <th>Título</th>
-                <th>Autor</th>
-                <th>Editora</th>
-                <th>Ações</th>
+                <td>{{ $book->titulo }}</td>
+                <td>{{ $book->subtitulo }}</td>
+                <td>{{ $book->autor }}</td> 
+                <td>{{ $book->datadepublicacao->format('d/m/Y') }}</td> 
+                <td>{{ $book->edicao }}</td>
+                <td>{{ $book->editora }}</td>
+                <td>
+                    <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary">Editar</a>
+                    <form action="{{ route('books.destroy', $book->id) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach($books as $book)
-                <tr>
-                    <td>{{ $book->title }}</td>
-                    <td>{{ $book->author }}</td>
-                    <td>{{ $book->publisher }}</td>
-                    <td>
-                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary">Editar</a>
-                        <a href="{{ route('books.destroy', $book->id) }}" class="btn btn-danger">Excluir</a>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <a href="{{ route('books.create') }}" class="btn btn-success">Adicionar Livro</a>
+        @endforeach
+    </tbody>
+</table>
+<a href="{{ route('books.create') }}" class="btn btn-success">Adicionar Livro</a>
 @endsection
 
 @endsection

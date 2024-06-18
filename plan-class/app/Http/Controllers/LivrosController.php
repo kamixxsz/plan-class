@@ -5,17 +5,17 @@ use Illuminate\Http\Request;
 namespace App\Http\Controllers;
 use App\Models\Book;
 
-class BookController extends Controller
+class LivrosController extends Controller
 {
-    public function index()
+    public function dashboard()
     {
-        $book = Book::all();
-        return view('dashboard', compact('books'));
+        $books = Book::all(); 
+        return view('dashboard', ['books' => $books]);
     }
-
     public function create()
-    {
-        return view('dashboard');
+    {   
+        $book = new Book();
+        return view('dashboard', compact('book'));
     }
 
     public function store(Request $request)
@@ -54,4 +54,6 @@ class BookController extends Controller
         $book->delete();
         return redirect()->route('dashboard');
     }
+
+    
 }
