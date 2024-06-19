@@ -21,4 +21,11 @@ Route::post('cadastro', [UserRegisterController::class, 'store'])
     
 Route::view('/dashboard', 'dashboard')->name('dashboard')->middleware('auth');
 
+Route::get('/dashboard', [LivrosController::class, 'dashboard'])->name('dashboard');
+Route::get('create', [LivrosController::class, 'create'])->name('create');
+Route::get('{id}/edit', [LivrosController::class, 'edit'])->name('edit');
+Route::put('{id}/update', [LivrosController::class, 'update'])->name('update');
+Route::delete('{id}/destroy', [LivrosController::class, 'destroy'])->name('destroy');
+Route::post('store', [LivrosController::class, 'store'])->name('store');
+
 

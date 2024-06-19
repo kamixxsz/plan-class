@@ -33,8 +33,8 @@
                 <td>{{ $book->edicao }}</td>
                 <td>{{ $book->editora }}</td>
                 <td>
-                    <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary">Editar</a>
-                    <form action="{{ route('books.destroy', $book->id) }}" method="POST" class="d-inline">
+                    <a href="{{ route('edit', $book->id) }}" class="btn btn-primary">Editar</a>
+                    <form action="{{ route('destroy', $book->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Excluir</button>
@@ -44,7 +44,5 @@
         @endforeach
     </tbody>
 </table>
-<a href="{{ route('books.create') }}" class="btn btn-success">Adicionar Livro</a>
-@endsection
-
+<a href="{{ route('create') }}" class="btn btn-success">Adicionar Livro</a>
 @endsection
