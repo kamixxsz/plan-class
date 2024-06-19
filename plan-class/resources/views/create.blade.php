@@ -25,7 +25,7 @@
     </div>
 
     <div class="form-group">
-        <label for="ano_publicacao">Ano de Publicação:</label>
+        <label for="datadepublicacao">Ano de Publicação:</label>
         <input type="text" class="form-control" id="datadepublicação" name="datadepublicação" value="{{ old('datadepublicação', $book->datadepublicação) }}">
     </div>
 

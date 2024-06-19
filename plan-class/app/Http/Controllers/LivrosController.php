@@ -23,12 +23,11 @@ class LivrosController extends Controller
         'titulo' => 'required|string|max:255',
         'subtitulo' => 'nullable|string|max:255',
         'autor' => 'required|string|max:255',
-        'datadepublicacao' => 'required|integer',
+        'datadepublicacao' => 'required|date',
         'edicao' => 'required|string|max:50',
         'editora' => 'required|string|max:255',
     ]);
 
-    // Cria um novo livro com os dados do formulário e salva no banco de dados
     $book = Book::create([
         'titulo' => $request->titulo,
         'subtitulo' => $request->subtitulo,
@@ -38,7 +37,7 @@ class LivrosController extends Controller
         'editora' => $request->editora,
     ]);
 
-    return redirect()->route('livros.index')
+    return redirect()->route('dashboard')
                      ->with('success', 'Livro adicionado com sucesso!');
 }
 
@@ -55,7 +54,7 @@ class LivrosController extends Controller
             'titulo' => 'required|string|max:255',
             'subtitulo' => 'nullable|string|max:255',
             'autor' => 'required|string|max:255',
-            'datadepublicacao' => 'required|integer',
+            'datadepublicacao' => 'required|date',
             'edicao' => 'required|string|max:50',
             'editora' => 'required|string|max:255',
         ]);

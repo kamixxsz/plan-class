@@ -9,8 +9,6 @@
         <button type="submit" class="button-sair">SAIR</button>
     </form>
 </div>
-
-<h1>Livros</h1>
 <table class="table">
     <thead>
         <tr>
