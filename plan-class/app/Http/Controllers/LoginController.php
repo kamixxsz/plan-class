@@ -15,9 +15,11 @@ class LoginController extends Controller
 {
     $credenciais = $request->only('email', 'password');
 
+    if (Auth::check()) {
+        return redirect()->route('dashboard');
+    }
     if (Auth::attempt($credenciais)) {
         $user = Auth::user();
-        // dd($user);
         return redirect()->route('dashboard'); 
     } else {
         return redirect()->route('login')

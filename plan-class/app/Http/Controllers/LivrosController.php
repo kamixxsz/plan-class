@@ -2,9 +2,27 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\User;
 
 class LivrosController extends Controller
 {
+
+    private $objUsers;
+    private $objBooks;
+
+    public function __construct() {
+        $this->objUsers = new User;
+        $this->objBooks = new Book;
+    }
+
+    public function index() {
+        $users = $this->objUsers->all();
+        $books = $this->objBooks->all();
+
+        return view('dashboard', compact('users', 'books'));
+    }
+
+
     public function dashboard()
     {
         $books = Book::all(); 

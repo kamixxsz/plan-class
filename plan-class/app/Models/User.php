@@ -44,4 +44,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function relBooks(){
+        return $this->hasOne('App\Models\Book', foreignKey:'id_user');
+    }
 }

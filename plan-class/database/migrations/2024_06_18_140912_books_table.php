@@ -10,6 +10,8 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on(table:'users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('titulo');
             $table->string('subtitulo')->nullable();
             $table->string('autor');

@@ -9,6 +9,13 @@
         <button type="submit" class="button-sair">SAIR</button>
     </form>
 </div>
+
+@foreach($users as $user)
+@php
+    echo $user->id;
+@endphp
+@endforeach
+
 <table class="table">
     <thead>
         <tr>

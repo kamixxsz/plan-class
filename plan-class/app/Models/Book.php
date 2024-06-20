@@ -17,5 +17,9 @@ class Book extends Model
     'datadepublicacao' ,
     'edicao',
     'editora'];
+
+    public function relUsers(){
+        return $this->hasMany('App\Models\User', foreignKey:'id', localKey:'id_user');
+    }
 }
 
