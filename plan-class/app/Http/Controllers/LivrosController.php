@@ -23,19 +23,19 @@ class LivrosController extends Controller
         'titulo' => 'required|string|max:255',
         'subtitulo' => 'nullable|string|max:255',
         'autor' => 'required|string|max:255',
-        'datadepublicacao' => 'required|date',
+        'datadepublicacao' => 'required|date', 
         'edicao' => 'required|string|max:50',
         'editora' => 'required|string|max:255',
     ]);
 
-    $book = Book::create([
-        'titulo' => $request->titulo,
-        'subtitulo' => $request->subtitulo,
-        'autor' => $request->autor,
-        'datadepublicacao' => $request->datadepublicacao,
-        'edicao' => $request->edicao,
-        'editora' => $request->editora,
-    ]);
+    $book = new Book();
+    $book->titulo = $request->titulo;
+    $book->subtitulo = $request->subtitulo;
+    $book->autor = $request->autor;
+    $book->datadepublicacao = $request->datadepublicacao;
+    $book->edicao = $request->edicao;
+    $book->editora = $request->editora;
+    $book->save();
 
     return redirect()->route('dashboard')
                      ->with('success', 'Livro adicionado com sucesso!');
@@ -49,28 +49,29 @@ class LivrosController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'titulo' => 'required|string|max:255',
-            'subtitulo' => 'nullable|string|max:255',
-            'autor' => 'required|string|max:255',
-            'datadepublicacao' => 'required|date',
-            'edicao' => 'required|string|max:50',
-            'editora' => 'required|string|max:255',
-        ]);
+{
+    $request->validate([
+        'titulo' => 'required|string|max:255',
+        'subtitulo' => 'nullable|string|max:255',
+        'autor' => 'required|string|max:255',
+        'datadepublicacao' => 'required|date', 
+        'edicao' => 'required|string|max:50',
+        'editora' => 'required|string|max:255',
+    ]);
 
-        $book = Book::findOrFail($id);
-        $book->titulo = $request->titulo;
-        $book->subtitulo = $request->subtitulo;
-        $book->autor = $request->autor;
-        $book->datadepublicacao = $request->datadepublicacao;
-        $book->edicao = $request->edicao;
-        $book->editora = $request->editora;
-        $book->save();
+    $book = Book::findOrFail($id);
+    $book->titulo = $request->titulo;
+    $book->subtitulo = $request->subtitulo;
+    $book->autor = $request->autor;
+    $book->datadepublicacao = $request->datadepublicacao;
+    $book->edicao = $request->edicao;
+    $book->editora = $request->editora;
+    $book->save();
 
-        return redirect()->route('dashboard')
-                         ->with('success', 'Livro atualizado com sucesso!');
-    }
+    return redirect()->route('dashboard')
+                     ->with('success', 'Livro atualizado com sucesso!');
+}
+
 
     public function destroy($id)
     {

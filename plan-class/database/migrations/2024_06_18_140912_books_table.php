@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('titulo');
             $table->string('subtitulo')->nullable();
             $table->string('autor');
-            $table->integer('datadepublicacao');
+            $table->date('datadepublicacao');
             $table->string('edicao');
             $table->string('editora');
             $table->timestamps();

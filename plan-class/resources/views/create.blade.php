@@ -2,7 +2,19 @@
 
 @section('content')
 
-<div class="menu">
+<form action="{{ route('store') }}" method="POST">
+    @csrf
+    <input type="text" name="titulo" placeholder="Título do Livro">
+    <input type="text" name="subtitulo" placeholder="Subtítulo do Livro">
+    <input type="text" name="autor" placeholder="Autor do Livro">
+    <input type="date" name="datadepublicacao" placeholder="Data de Publicação">
+    <input type="text" name="edicao" placeholder="Edição do Livro">
+    <input type="text" name="editora" placeholder="Editora do Livro">
+    <button type="submit">Salvar Livro</button>
+</form>
+
+
+<!-- <div class="menu">
     <h1 class="login-name">ADICIONAR LIVROS</h1>
     <a href="{{ route('dashboard') }}" class="button-sair">DASHBOARD</a>
 </div>
@@ -40,6 +52,6 @@
     </div>
 
     <button type="submit" class="btn btn-success" href="{{ route('dashboard') }}">Salvar</button>
-</form>
+</form> -->
 
 @endsection

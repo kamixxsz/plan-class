@@ -27,7 +27,7 @@
                 <td>{{ $book->titulo }}</td>
                 <td>{{ $book->subtitulo }}</td>
                 <td>{{ $book->autor }}</td> 
-                <td>{{ $book->datadepublicacao->format('d/m/Y') }}</td> 
+                <td>{{ $book->datadepublicacao}}</td> 
                 <td>{{ $book->edicao }}</td>
                 <td>{{ $book->editora }}</td>
                 <td>
