@@ -1,7 +1,5 @@
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: rgb(141,194,111);
-  background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
+  background: rgb(141,194,111); /* fallback for old browsers */
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
@@ -69,13 +67,16 @@ body {
 .button-sair{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	text-transform: uppercase;
-	background: #4CAF50;
+	background-color: #005229;
 	border-radius: 10px;
 	color: #FFFFFF;
 	padding: 15px;
 	font-size: 14px;
 	border: #76b852;
 	align-items: end;
+}
+.button-sair:hover {
+    background-color: #218838;
 }
 
 .button :hover{
@@ -91,7 +92,7 @@ body {
 
 .login-name{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	color: #4CAF50;
+	color: #005229;
 	font-weight: 800;
 }
 
@@ -114,12 +115,109 @@ body {
 .menu {
 	width: auto;
 	height: 5px;
-	display: flex; /* Add this to use flexbox */
-	align-items: center; /* Center vertically */
-	background: #FFFFFF;
+	display: flex; 
+	align-items: center; 
+	background: rgb(141,194,111);
 	margin: 0 auto 100px;
 	padding: 40px;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 	text-align: center;
 	justify-content: space-between;
   }
+
+.menu-button{
+	display: flex; 
+	align-items: center; 
+	padding: 40px;
+	gap: 10px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.table th {
+    background: rgb(164, 165, 164); 
+    color: #005229;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+.table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd; 
+}
+
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+
+.table td a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 10px;
+	color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+	width: 200px;
+}
+
+.table td form button {
+    background-color: #dc3545; 
+    color: #fff; 
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+	width: 200px;
+}
+
+.table td form button:hover {
+    background-color: #c82333;
+}
+
+.form {
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.input1 {
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+
+.input1[type="date"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 15px;
+}
+
+.tablediv{
+    margin: 40px auto; 
+    background: #ffffff; 
+    width: 80vw;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); 
+	border-radius: 20px;
+}

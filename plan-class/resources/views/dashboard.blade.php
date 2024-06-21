@@ -4,19 +4,17 @@
 
 <div class="menu">
     <h1 class="login-name">MEUS LIVROS</h1>
+    <div class = "menu-button">
+        <a href="{{ route('create') }}" class="button-sair">Adicionar Livro</a>
     <form action="{{ route('logout') }}" method="POST">
         @csrf
-        <button type="submit" class="button-sair">SAIR</button>
-    </form>
+     <button type="submit" class="button-sair">SAIR</button>
+</form>
+</div>
 </div>
 
-@foreach($users as $user)
-@php
-    echo $user->id;
-@endphp
-@endforeach
-
-<table class="table">
+<div class="tablediv"> 
+<table class="table table-ligth table-striped-columns">
     <thead>
         <tr>
             <th>Título</th>
@@ -49,5 +47,7 @@
         @endforeach
     </tbody>
 </table>
-<a href="{{ route('create') }}" class="btn btn-success">Adicionar Livro</a>
+
+</div>
+
 @endsection

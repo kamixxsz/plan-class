@@ -2,56 +2,31 @@
 
 @section('content')
 
-<form action="{{ route('store') }}" method="POST">
-    @csrf
-    <input type="text" name="titulo" placeholder="Título do Livro">
-    <input type="text" name="subtitulo" placeholder="Subtítulo do Livro">
-    <input type="text" name="autor" placeholder="Autor do Livro">
-    <input type="date" name="datadepublicacao" placeholder="Data de Publicação">
-    <input type="text" name="edicao" placeholder="Edição do Livro">
-    <input type="text" name="editora" placeholder="Editora do Livro">
-    <button type="submit">Salvar Livro</button>
-</form>
-
-
-<!-- <div class="menu">
-    <h1 class="login-name">ADICIONAR LIVROS</h1>
-    <a href="{{ route('dashboard') }}" class="button-sair">DASHBOARD</a>
+<div class="menu">
+    <h1 class="login-name">MEUS LIVROS</h1>
+    <div class="menu-button">
+        <a href="{{ route('dashboard') }}" class="button-sair">DASHBOARD</a>
+        <a href="{{ route('create') }}" class="button-sair">ADICIONAR LIVRO</a>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="button-sair">SAIR</button>
+        </form>
+    </div>
 </div>
-<form action="{{ route('store') }}" method="POST">
-    @csrf
 
-    <div class="form-group">
-        <label for="titulo">Título:</label>
-        <input type="text" class="form-control" id="titulo" name="titulo" value="{{ old('titulo', $book->titulo) }}">
-    </div>
-
-    <div class="form-group">
-        <label for="subtitulo">Subtítulo:</label>
-        <input type="text" class="form-control" id="subtitulo" name="subtitulo" value="{{ old('subtitulo', $book->subtitulo) }}">
-    </div>
-
-    <div class="form-group">
-        <label for="autor">Autor:</label>
-        <input type="text" class="form-control" id="autor" name="autor" value="{{ old('autor', $book->autor) }}">
-    </div>
-
-    <div class="form-group">
-        <label for="datadepublicacao">Ano de Publicação:</label>
-        <input type="text" class="form-control" id="datadepublicação" name="datadepublicação" value="{{ old('datadepublicação', $book->datadepublicação) }}">
-    </div>
-
-    <div class="form-group">
-        <label for="edicao">Edição:</label>
-        <input type="text" class="form-control" id="edicao" name="edicao" value="{{ old('edicao', $book->edicao) }}">
-    </div>
-
-    <div class="form-group">
-        <label for="editora">Editora:</label>
-        <input type="text" class="form-control" id="editora" name="editora" value="{{ old('editora', $book->editora) }}">
-    </div>
-
-    <button type="submit" class="btn btn-success" href="{{ route('dashboard') }}">Salvar</button>
-</form> -->
+<div class="form">
+    <h3 class="login-name">CADASTRE SEUS LIVROS</h3>
+    <form action="{{ route('store') }}" method="POST">
+        @csrf
+        <input type="text" name="titulo" placeholder="Título do Livro" class="input1">
+        <input type="text" name="subtitulo" placeholder="Subtítulo do Livro" class="input1">
+        <input type="text" name="autor" placeholder="Autor do Livro" class="input1">
+        <input type="date" name="datadepublicacao" placeholder="Data de Publicação" class="input1">
+        <input type="text" name="edicao" placeholder="Edição do Livro" class="input1">
+        <input type="text" name="editora" placeholder="Editora do Livro" class="input1">
+        <button type="submit" class="button-sair">Salvar Livro</button>
+    </form>
+</div>
 
 @endsection
+
