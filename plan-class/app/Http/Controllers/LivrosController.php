@@ -11,8 +11,9 @@ class LivrosController extends Controller
     {
         $user = auth()->user(); 
         $books = Book::where('id_user', $user->id)->get();
-
-        return view('dashboard', compact('books'));
+        $books = Book::paginate(10); 
+    
+    return view('dashboard', compact('books'));
     }
 
     public function create()

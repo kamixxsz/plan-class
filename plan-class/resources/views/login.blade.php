@@ -18,12 +18,12 @@
             @csrf
             <label for="email">
                     Email:
-                    <input name="email" type="email" placeholder="name@example.com" class="input" value="teste@gmail.com">
+                    <input name="email" type="email" placeholder="name@example.com" class="input">
                 </label>
     
                 <label for="password">
                     Senha:
-                    <input name="password" type="password" placeholder="example123" class="input" value="testeteste">
+                    <input name="password" type="password" placeholder="example123" class="input">
                 </label>
                 <br>
                 <button type="submit" class="button">Entrar</button>
