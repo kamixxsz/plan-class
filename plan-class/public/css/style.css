@@ -117,7 +117,7 @@ body {
 	height: 5px;
 	display: flex; 
 	align-items: center; 
-	background: rgb(141,194,111);
+	background: rgb(164, 165, 164); 
 	margin: 0 auto 100px;
 	padding: 40px;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
