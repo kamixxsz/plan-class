@@ -15,7 +15,7 @@
 </div>
 
 <div class="form">
-<h3 class="login-name">ATUALIZE SEU LIVRO</h3>
+    <h3 class="login-name">ATUALIZE SEU LIVRO</h3>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -26,7 +26,7 @@
         </div>
     @endif
 
-    <form action="{{ route('update', $book->id) }}" method="POST">
+    <form action="{{ route('update', $book->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -58,6 +58,11 @@
         <div class="form-group">
             <label for="editora">Editora do Livro</label>
             <input type="text" id="editora" name="editora" class="input1" value="{{ $book->editora }}">
+        </div>
+
+        <div class="form-group">
+            <label for="capa_livro">Capa do Livro</label>
+            <input type="file" id="capa_livro" name="capa_livro" accept="image/*">
         </div>
 
         <button type="submit" class="button-sair">Salvar Alterações</button>

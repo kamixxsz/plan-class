@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('datadepublicacao');
             $table->string('edicao');
             $table->string('editora');
+            $table->string('capa_livro')->nullable();
             $table->timestamps();
         });
     }

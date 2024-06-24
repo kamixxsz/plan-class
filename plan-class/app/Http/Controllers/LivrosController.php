@@ -23,31 +23,42 @@ class LivrosController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'titulo' => 'required|string|max:255',
-            'subtitulo' => 'nullable|string|max:255',
-            'autor' => 'required|string|max:255',
-            'datadepublicacao' => 'required|date', 
-            'edicao' => 'required|string|max:50',
-            'editora' => 'required|string|max:255',
-        ]);
+{
+    $request->validate([
+        'titulo' => 'required|string|max:255',
+        'subtitulo' => 'nullable|string|max:255',
+        'autor' => 'required|string|max:255',
+        'datadepublicacao' => 'required|date', 
+        'edicao' => 'required|string|max:50',
+        'editora' => 'required|string|max:255',
+        'capa_livro' => 'nullable|image|max:2048', 
+    ]);
 
-        $user = auth()->user(); 
+    $user = auth()->user(); 
 
-        $book = new Book();
-        $book->id_user = $user->id; 
-        $book->titulo = $request->titulo;
-        $book->subtitulo = $request->subtitulo;
-        $book->autor = $request->autor;
-        $book->datadepublicacao = $request->datadepublicacao;
-        $book->edicao = $request->edicao;
-        $book->editora = $request->editora;
-        $book->save();
+    $book = new Book();
+    $book->id_user = $user->id; 
+    $book->titulo = $request->titulo;
+    $book->subtitulo = $request->subtitulo;
+    $book->autor = $request->autor;
+    $book->datadepublicacao = $request->datadepublicacao;
+    $book->edicao = $request->edicao;
+    $book->editora = $request->editora;
 
-        return redirect()->route('dashboard')
-                         ->with('success', 'Livro adicionado com sucesso!');
+    if ($request->hasFile('capa_livro')) {
+        $image = $request->file('capa_livro');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path("img"), $imageName);
+        // $image->storeAs('public/capas', $imageName); 
+        $book->capa_livro = 'img/' . $imageName; 
     }
+
+    $book->save();
+
+    return redirect()->route('dashboard')
+                     ->with('success', 'Livro adicionado com sucesso!');
+}
+
 
     public function edit($id)
     {

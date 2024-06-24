@@ -16,7 +16,8 @@ class Book extends Model
     'autor', 
     'datadepublicacao' ,
     'edicao',
-    'editora'];
+    'editora',
+    'capa_livro'];
 
     public function relUsers(){
         return $this->hasMany('App\Models\User', foreignKey:'id', localKey:'id_user');
