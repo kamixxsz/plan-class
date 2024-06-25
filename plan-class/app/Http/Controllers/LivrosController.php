@@ -75,6 +75,7 @@ class LivrosController extends Controller
             'datadepublicacao' => 'required|date', 
             'edicao' => 'required|string|max:50',
             'editora' => 'required|string|max:255',
+            'capa_livro' => 'nullable|image|max:2048', 
         ]);
 
         $book = Book::findOrFail($id);
